@@ -1,4 +1,4 @@
-package com.cerucci.demo.entities;
+package comCerucciDemo.entities;
 
 import java.io.Serializable;
 import java.util.Objects;

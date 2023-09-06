@@ -1,11 +1,11 @@
-package com.cerucci.demo.resources;
+package comCerucciDemo.resources;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cerucci.demo.entities.User;
+import comCerucciDemo.entities.User;
 
 @RestController
 @RequestMapping(value = "/users")
