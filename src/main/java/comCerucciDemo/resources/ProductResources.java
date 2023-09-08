@@ -9,25 +9,26 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import comCerucciDemo.entities.User;
-import comCerucciDemo.services.UserServices;
+import comCerucciDemo.entities.Product;
+import comCerucciDemo.services.ProductServices;
+
 
 @RestController
-@RequestMapping(value = "/users")
-public class UserResource {
+@RequestMapping(value = "/product")
+public class ProductResources {
 
 	@Autowired
-	private UserServices service;
+	private ProductServices service;
 	
 	@GetMapping
-	public ResponseEntity<List<User>> findAll(){
-		List<User> list = service.findAll();
+	public ResponseEntity<List<Product>> findAll(){
+		List<Product> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<User> findById(@PathVariable Long id) {
-			User obj = service.findById(id);
+	public ResponseEntity<Product> findById(@PathVariable Long id) {
+			Product obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 	

@@ -1,4 +1,4 @@
-package comCerucciDemo.entities;
+package comCerucciDemo.enumerate;
 
 public enum OrderStatus {
 
