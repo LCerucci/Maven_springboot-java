@@ -11,10 +11,12 @@ import org.springframework.context.annotation.Profile;
 
 import comCerucciDemo.entities.Category;
 import comCerucciDemo.entities.Order;
+import comCerucciDemo.entities.OrderItem;
 import comCerucciDemo.entities.Product;
 import comCerucciDemo.entities.User;
 import comCerucciDemo.enumerate.OrderStatus;
 import comCerucciDemo.repository.CategoryRepository;
+import comCerucciDemo.repository.OrderItemRepository;
 import comCerucciDemo.repository.OrderRepository;
 import comCerucciDemo.repository.ProductRepository;
 import comCerucciDemo.repository.UserRepository;
@@ -22,6 +24,9 @@ import comCerucciDemo.repository.UserRepository;
 @Configuration
 @Profile("test")
 public class TestConfig implements CommandLineRunner{
+	
+	@Autowired
+	private OrderItemRepository oir;
 	
 	@Autowired
 	private ProductRepository pr;
@@ -62,11 +67,16 @@ public class TestConfig implements CommandLineRunner{
 		p4.getCategory().add(cat3);
 		p5.getCategory().add(cat1);
 		
+		OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice());
+		OrderItem oi2 = new OrderItem(o1, p3, 1, p3.getPrice());
+		OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice());
+		OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
 		
 		userRepository.saveAll(Arrays.asList(u1, u2, u3));
 		orderRepository.saveAll(Arrays.asList(o1, o2, o3));
 		cr.saveAll(Arrays.asList(cat1, cat2, cat3));
 		pr.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
+		oir.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
 	}
 	
 }
